@@ -4,7 +4,6 @@ void get_cmd_path(char **command);
 void free_cmds(char **cmds);
 char **tokenize(char *str, const char *delim);
 
-/*
 int main(__attribute__((unused))int argc, char *argv[])
 {
     char *lineptr = NULL, **commands = NULL;
@@ -51,7 +50,15 @@ int main(__attribute__((unused))int argc, char *argv[])
 
     return 0;
 }
-*/
+
+/**
+ * get_cmd_path - Gets the full path to a command if it's valid and exists in
+ *                the PATH list of directories.
+ * @command: A pointer to the string containing the command to get the full path for.
+ *
+ * Note: The string is modified in place, and it is recommended to pass the
+ *       address of the string.
+ */
 
 void get_cmd_path(char **command)
 {
@@ -92,6 +99,12 @@ void get_cmd_path(char **command)
     free(dup_str);
 }
 
+/**
+ * free_cmds - Handles the deallocation of the string array containing the
+ *             tokenized input string.
+ * @cmds: The string array of commands to free.
+ */
+
 void free_cmds(char **cmds)
 {
     size_t i;
@@ -103,6 +116,14 @@ void free_cmds(char **cmds)
     }
     free(cmds);
 }
+
+/**
+ * tokenize - Returns a string array of strings based on a delimiter.
+ * @str: The string to tokenize.
+ * @delim: The delimiter.
+ *
+ * Return: A NULL-terminated string array of words.
+ */
 
 char **tokenize(char *str, const char *delim)
 {

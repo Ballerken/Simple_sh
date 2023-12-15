@@ -141,8 +141,8 @@ int replacevars(info_t *info)
 
 /**
  * replacestring - replaces string
- * @old: address of old string
- * @new: new string
+ * @prev: address of old string
+ * @curr: new string
  *
  * Return: 1 if replaced, 0 otherwise
  */

@@ -1,13 +1,13 @@
 #include "shell.h"
 
 /**
- * is_cmd - determines if a file is an executable command
+ * iscmd - determines if a file is an executable command
  * @info: the info struct
  * @path: path to the file
  *
  * Return: 1 if true, 0 otherwise
  */
-int is_cmd(info_t *info, char *path)
+int iscmd(info_t *info, char *path)
 {
 	struct stat st;
 
@@ -53,7 +53,7 @@ char *create_path(const char *dir, const char *cmd)
 char *find_path(info_t *info, char *pathstr, char *cmd)
 {
 	int curr_pos = 0;
-	int i = 0;
+	int a = 0;
 	char *path;
 
 	if (!pathstr)
@@ -61,31 +61,31 @@ char *find_path(info_t *info, char *pathstr, char *cmd)
 
 	if (strlen(cmd) > 2 && starts_with(cmd, "./"))
 	{
-		if (is_cmd(info, cmd))
+		if (iscmd(info, cmd))
 			return (cmd);
 	}
 
-	while (pathstr[i] != '\0')
+	while (pathstr[a] != '\0')
 	{
-		if (pathstr[i] == ':')
+		if (pathstr[a] == ':')
 		{
 			path = create_path(&pathstr[curr_pos], cmd);
 
 			if (path)
 			{
-				if (is_cmd(info, path))
+				if (iscmd(info, path))
 					return (path);
 				free(path);
 			}
-			curr_pos = i + 1;
+			curr_pos = a + 1;
 		}
-		i++;
+		a++;
 	}
 	path = create_path(&pathstr[curr_pos], cmd);
 
 	if (path)
 	{
-		if (is_cmd(info, path))
+		if (iscmd(info, path))
 			return (path);
 		free(path);
 	}

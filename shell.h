@@ -120,10 +120,10 @@ char *find_path(info_t *, char *, char *);
 int loophsh(char **);
 
 /* errors.c */
-void _eputs(char *);
-int _eputchar(char);
-int _putfd(char c, int fd);
-int _putsfd(char *str, int fd);
+void _ePuts(char *);
+int _ePutchar(char);
+int _Putfd(char c, int fd);
+int _Putsfd(char *str, int fd);
 
 /* string.c */
 int _strlen(char *);
@@ -160,12 +160,12 @@ int if_del(char, char *);
 int if_alpha(int);
 int _atoi(char *);
 
-/* errors1.c */
-int _erratoi(char *);
-void print_error(info_t *, char *);
-int print_d(int, int);
-char *convert_number(long int, int, int);
-void remove_comments(char *);
+/* errors2.c */
+int _Erratoi(char *);
+void print_Error(info_t *, char *);
+int print_D(int, int);
+char *convert_Number(long int, int, int);
+void remove_Comments(char *);
 
 /* builtin.c done */
 int _myExit(info_t *);

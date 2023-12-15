@@ -1,13 +1,13 @@
 #include "shell.h"
 
 /**
- * _erratoi - Converts a string to an integer.
+ * _Erratoi - Converts a string to an integer.
  * @s: The string to be converted.
  *
  * Return: 0 if no numbers in string, converted number otherwise.
  *         -1 on error.
  */
-int _erratoi(char *s)
+int _Erratoi(char *s)
 {
 	int i = 0;
 	unsigned long int result = 0;
@@ -32,38 +32,38 @@ int _erratoi(char *s)
 }
 
 /**
- * print_error - Prints an error message.
+ * print_Error - Prints an error message.
  * @info: The parameter & return info struct.
  * @estr: String containing the specified error type.
  *
  * Return: Nothing.
  */
-void print_error(info_t *info, char *estr)
+void print_Error(info_t *info, char *estr)
 {
-	_eputs(info->fname);
-	_eputs(": ");
+	_ePuts(info->fname);
+	_ePuts(": ");
 	print_d(info->line_count, STDERR_FILENO);
-	_eputs(": ");
-	_eputs(info->argv[0]);
-	_eputs(": ");
-	_eputs(estr);
+	_ePuts(": ");
+	_ePuts(info->argv[0]);
+	_ePuts(": ");
+	_ePuts(estr);
 }
 
 /**
- * print_d - Function prints a decimal (integer) number (base 10).
+ * print_D - Function prints a decimal (integer) number (base 10).
  * @input: The input.
  * @fd: The file descriptor to write to.
  *
  * Return: Number of characters printed.
  */
-int print_d(int input, int fd)
+int print_D(int input, int fd)
 {
 	int (*__putchar)(char) = _putchar;
 	int i, count = 0;
 	unsigned int _abs_, current;
 
 	if (fd == STDERR_FILENO)
-		__putchar = _eputchar;
+		__putchar = _ePutchar;
 
 	if (input < 0)
 	{
@@ -93,14 +93,14 @@ int print_d(int input, int fd)
 }
 
 /**
- * convert_number - Converter function, a clone of itoa.
+ * convert_Number - Converter function, a clone of itoa.
  * @num: Number.
  * @base: Base.
  * @flags: Argument flags.
  *
  * Return: String.
  */
-char *convert_number(long int num, int base, int flags)
+char *convert_Number(long int num, int base, int flags)
 {
 	static char *array;
 	static char buffer[50];
@@ -130,12 +130,12 @@ char *convert_number(long int num, int base, int flags)
 }
 
 /**
- * remove_comments - Function replaces first instance of '#' with '\0'.
+ * remove_Comments - Function replaces first instance of '#' with '\0'.
  * @buf: Address of the string to modify.
  *
  * Return: Always 0.
  */
-void remove_comments(char *buf)
+void remove_Comments(char *buf)
 {
 	int i;
 

@@ -24,7 +24,7 @@ int unset_Alias(info_t *info, char *str)
 	char *p, c;
 	int ret;
 
-	p = _strchr(str, '=');
+	p = _strChr(str, '=');
 	if (!p)
 		return (1);
 	c = *p;
@@ -46,7 +46,7 @@ int set_Alias(info_t *info, char *str)
 {
 	char *p;
 
-	p = _strchr(str, '=');
+	p = _strChr(str, '=');
 	if (!p)
 		return (1);
 	if (!*++p)
@@ -68,7 +68,7 @@ int print_Alias(list_t *node)
 
 	if (node)
 	{
-		p = _strchr(node->str, '=');
+		p = _strChr(node->str, '=');
 		for (a = node->str; a <= p; a++)
 			_putchar(*a);
 		_putchar('\'');
@@ -103,7 +103,7 @@ int _myAlias(info_t *info)
 	}
 	for (i = 1; info->argv[i]; i++)
 	{
-		p = _strchr(info->argv[i], '=');
+		p = _strChr(info->argv[i], '=');
 		if (p)
 			set_Alias(info, info->argv[i]);
 		else

@@ -180,14 +180,16 @@ int set_Alias(info_t *info, char *str);
 int print_Alias(list_t *node);
 
 /* getline.c */
-ssize_t get_input(info_t *);
-int _getline(info_t *, char **, size_t *);
-void sigintHandler(int);
+ssize_t get_Input(info_t *);
+int _getLine(info_t *, char **, size_t *);
+void siginthandler(int);
+ssize_t input_Buf(info_t *info, char **buf, size_t *len);
+ssize_t read_Buf(info_t *info, char *buf, size_t *i);
 
 /* getinfo.c */
-void clear_info(info_t *);
-void set_info(info_t *, char **);
-void free_info(info_t *, int);
+void clear_Info(info_t *);
+void set_Info(info_t *, char **);
+void free_Info(info_t *, int);
 
 /* environiment.c */
 char *_getEnv(info_t *, const char *);

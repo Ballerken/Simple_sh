@@ -46,7 +46,7 @@ int _mysetEnv(info_t *info)
 {
 	if (info->argc != 3)
 	{
-		_eputs("Incorrect number of arguments\n");
+		_ePuts("Incorrect number of arguments\n");
 		return (1);
 	}
 
@@ -68,7 +68,7 @@ int _myunsetEnv(info_t *info)
 
 	if (info->argc == 1)
 	{
-		_eputs("Too few arguments.\n");
+		_ePuts("Too few arguments.\n");
 		return (1);
 	}
 

@@ -42,7 +42,7 @@ void print_Error(info_t *info, char *estr)
 {
 	_ePuts(info->fname);
 	_ePuts(": ");
-	print_d(info->line_count, STDERR_FILENO);
+	print_D(info->line_count, STDERR_FILENO);
 	_ePuts(": ");
 	_ePuts(info->argv[0]);
 	_ePuts(": ");

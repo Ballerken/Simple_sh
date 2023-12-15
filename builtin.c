@@ -57,8 +57,8 @@ int _myCd(info_t *info)
 			_putchar('\n');
 			return (1);
 		}
-		_puts(_getenv(info, "OLDPWD=")), _putchar('\n');
-		chdir_ret = (dir = _getenv(info, "OLDPWD=")) ? chdir(dir) : chdir("/");
+		_puts(_getEnv(info, "OLDPWD=")), _putchar('\n');
+		chdir_ret = (dir = _getEnv(info, "OLDPWD=")) ? chdir(dir) : chdir("/");
 	}
 	else
 		chdir_ret = chdir(info->argv[1]);

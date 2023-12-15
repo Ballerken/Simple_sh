@@ -17,11 +17,11 @@ int hsh(info_t *info, char **av)
 		clear_Info(info);
 		if (interactive(info))
 			_puts("$ ");
-		_eputchar(BUF_FLUSH);
-		r = get_input(info);
+		_ePutchar(BUF_FLUSH);
+		r = get_Input(info);
 		if (r != -1)
 		{
-			set_info(info, av);
+			set_Info(info, av);
 			builtinrett = find_builtin(info);
 			if (builtinrett == -1)
 				find_cmd(info);
@@ -102,7 +102,7 @@ void find_cmd(info_t *info)
 	if (!j)
 		return;
 
-	path = find_path(info, _getenv(info, "PATH="), info->argv[0]);
+	path = find_path(info, _getEnv(info, "PATH="), info->argv[0]);
 	if (path)
 	{
 		info->path = path;
@@ -110,7 +110,7 @@ void find_cmd(info_t *info)
 	}
 	else
 	{
-		if ((interactive(info) || _getenv(info, "PATH=")
+		if ((interactive(info) || _getEnv(info, "PATH=")
 					|| info->argv[0][0] == '/') && is_cmd(info, info->argv[0]))
 			fork_cmd(info);
 		else if (*(info->arg) != '\n')

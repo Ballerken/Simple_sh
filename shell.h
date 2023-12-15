@@ -197,9 +197,9 @@ int _myunsetEnv(info_t *);
 int populate_Env_list(info_t *);
 
 /* getenv.c */
-char **get_environ(info_t *);
-int _unsetenv(info_t *, char *);
-int _setenv(info_t *, char *, char *);
+char **get_Environ(info_t *);
+int _unsetEnv(info_t *, char *);
+int _setEnv(info_t *, char *, char *);
 
 /* history.c */
 char *get_history_file(info_t *info);

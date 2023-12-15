@@ -138,9 +138,9 @@ void _puts(char *);
 int _putchar(char);
 
 /* exit_log.c */
-char *_strncpy(char *, char *, int);
-char *_strncat(char *, char *, int);
-char *_strchr(char *, char);
+char *_strnCpy(char *, char *, int);
+char *_strnCat(char *, char *, int);
+char *_strChr(char *, char);
 
 /* tokens.c */
 char **strtow(char *, char *);

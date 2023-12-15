@@ -116,8 +116,8 @@ int is_cmd(info_t *, char *);
 char *dup_chars(char *, int, int);
 char *find_path(info_t *, char *, char *);
 
-/* loophsh.c */
-int loophsh(char **);
+
+/* int loophsh(char **); */
 
 /* errors.c */
 void _ePuts(char *);
@@ -152,7 +152,7 @@ void freee(char **);
 void *_realloc(void *, unsigned int, unsigned int);
 
 /* memory.c */
-int befree(void **);
+int befree(void **ptr);
 
 /* atoi.c */
 int interactive(info_t *);
@@ -172,7 +172,7 @@ int _myExit(info_t *);
 int _myCd(info_t *);
 int _myHelp(info_t *);
 
-/* builtin1.c done */
+/* _builtin1.c done */
 int my_History(info_t *);
 int _myAlias(info_t *);
 int unset_Alias(info_t *info, char *str);
@@ -230,6 +230,12 @@ void checkchain(info_t *, char *, size_t *, size_t, size_t);
 int replacealias(info_t *);
 int replacevars(info_t *);
 int replace_string(char **, char *);
+
+/* shell_loops.c */
+void find_cmd(info_t *info);
+int hsh(info_t *info, char **av);
+int find_builtin(info_t *info);
+void fork_cmd(info_t *info);
 
 #endif /* _MAIN_H_ */
 

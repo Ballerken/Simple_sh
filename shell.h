@@ -137,12 +137,12 @@ char *_strdup(const char *);
 void _puts(char *);
 int _putchar(char);
 
-/* exits.c */
+/* exit_log.c */
 char *_strncpy(char *, char *, int);
 char *_strncat(char *, char *, int);
 char *_strchr(char *, char);
 
-/* tokenizer.c */
+/* tokens.c */
 char **strtow(char *, char *);
 char **strtow2(char *, char);
 
@@ -156,7 +156,7 @@ int bfree(void **);
 
 /* atoi.c */
 int interactive(info_t *);
-int is_delim(char, char *);
+int if_delim(char, char *);
 int _isalpha(int);
 int _atoi(char *);
 

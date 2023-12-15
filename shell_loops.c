@@ -14,7 +14,7 @@ int hsh(info_t *info, char **av)
 
 	while (r != -1 && builtinrett != -2)
 	{
-		clear_info(info);
+		clear_Info(info);
 		if (interactive(info))
 			_puts("$ ");
 		_eputchar(BUF_FLUSH);
@@ -28,10 +28,10 @@ int hsh(info_t *info, char **av)
 		}
 		else if (interactive(info))
 			_putchar('\n');
-		free_info(info, 0);
+		free_Info(info, 0);
 	}
 	write_History(info);
-	free_info(info, 1);
+	free_Info(info, 1);
 	if (!interactive(info) && info->status)
 		exit(info->status);
 	if (builtinrett == -2)
@@ -142,7 +142,7 @@ void fork_cmd(info_t *info)
 	{
 		if (execve(info->path, info->argv, get_Environ(info)) == -1)
 		{
-			free_info(info, 1);
+			free_Info(info, 1);
 			if (errno == EACCES)
 				exit(126);
 			exit(1);

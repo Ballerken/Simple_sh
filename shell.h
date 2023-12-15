@@ -173,8 +173,9 @@ int _mycd(info_t *);
 int _myhelp(info_t *);
 
 /* builtin1.c */
-int _myhistory(info_t *);
-int _myalias(info_t *);
+int my_history(info_t *);
+int _myAlias(info_t *);
+int unset_Alias(info_t *info, char *str);
 
 /* getline.c */
 ssize_t get_input(info_t *);

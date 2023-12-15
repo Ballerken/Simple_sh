@@ -156,8 +156,8 @@ int bfree(void **);
 
 /* atoi.c */
 int interactive(info_t *);
-int is_delim(char, char *);
-int _isalpha(int);
+int if_del(char, char *);
+int if_alpha(int);
 int _atoi(char *);
 
 /* errors1.c */

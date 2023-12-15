@@ -105,11 +105,11 @@ typedef struct builtin
 } builtin_table;
 
 /* Function Prototypes */
-
+/*
 int hsh(info_t *, char **);
 int find_builtin(info_t *);
 void find_cmd(info_t *);
-void fork_cmd(info_t *);
+void fork_cmd(info_t *); */
 
 /* parser.c */
 int is_Cmd(info_t *, char *);

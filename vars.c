@@ -1,42 +1,42 @@
 #include "shell.h"
 
 /**
- * is_chain - test if current char in buffer is a chain delimeter
+ * ischain - test if current char in buffer is a chain delimeter
  * @info: the parameter struct
  * @buf: the char buffer
  * @p: address of current position in buf
  *
  * Return: 1 if chain delimeter, 0 otherwise
  */
-int is_chain(info_t *info, char *buf, size_t *p)
+int ischain(info_t *info, char *buf, size_t *p)
 {
-	size_t j = *p;
+	size_t y = *p;
 
-	if (buf[j] == '|' && buf[j + 1] == '|')
+	if (buf[y] == '|' && buf[y + 1] == '|')
 	{
-		buf[j] = 0;
-		j++;
+		buf[y] = 0;
+		y++;
 		info->cmd_buf_type = CMD_OR;
 	}
-	else if (buf[j] == '&' && buf[j + 1] == '&')
+	else if (buf[y] == '&' && buf[y + 1] == '&')
 	{
-		buf[j] = 0;
-		j++;
+		buf[y] = 0;
+		y++;
 		info->cmd_buf_type = CMD_AND;
 	}
-	else if (buf[j] == ';') /* found end of this command */
+	else if (buf[y] == ';') /* found end of this command */
 	{
-		buf[j] = 0; /* replace semicolon with null */
+		buf[y] = 0; /* replace semicolon with null */
 		info->cmd_buf_type = CMD_CHAIN;
 	}
 	else
 		return (0);
-	*p = j;
+	*p = y;
 	return (1);
 }
 
 /**
- * check_chain - checks we should continue chaining based on last status
+ * checkchain - checks we should continue chaining based on last status
  * @info: the parameter struct
  * @buf: the char buffer
  * @p: address of current position in buf
@@ -45,16 +45,16 @@ int is_chain(info_t *info, char *buf, size_t *p)
  *
  * Return: Void
  */
-void check_chain(info_t *info, char *buf, size_t *p, size_t i, size_t len)
+void checkchain(info_t *info, char *buf, size_t *p, size_t i, size_t len)
 {
-	size_t j = *p;
+	size_t y = *p;
 
 	if (info->cmd_buf_type == CMD_AND)
 	{
 		if (info->status)
 		{
 			buf[i] = 0;
-			j = len;
+			y = len;
 		}
 	}
 	if (info->cmd_buf_type == CMD_OR)
@@ -62,26 +62,26 @@ void check_chain(info_t *info, char *buf, size_t *p, size_t i, size_t len)
 		if (!info->status)
 		{
 			buf[i] = 0;
-			j = len;
+			y = len;
 		}
 	}
 
-	*p = j;
+	*p = y;
 }
 
 /**
- * replace_alias - replaces an aliases in the tokenized string
+ * replacealias - replaces an aliases in the tokenized string
  * @info: the parameter struct
  *
  * Return: 1 if replaced, 0 otherwise
  */
-int replace_alias(info_t *info)
+int replacealias(info_t *info)
 {
-	int i;
+	int n;
 	list_t *node;
 	char *p;
 
-	for (i = 0; i < 10; i++)
+	for (n = 0; n < 10; n++)
 	{
 		node = node_starts_with(info->alias, info->argv[0], '=');
 		if (!node)
@@ -99,57 +99,57 @@ int replace_alias(info_t *info)
 }
 
 /**
- * replace_vars - replaces vars in the tokenized string
+ * replacevars - replaces vars in the tokenized string
  * @info: the parameter struct
  *
  * Return: 1 if replaced, 0 otherwise
  */
-int replace_vars(info_t *info)
+int replacevars(info_t *info)
 {
-	int i = 0;
+	int n = 0;
 	list_t *node;
 
-	for (i = 0; info->argv[i]; i++)
+	for (n = 0; info->argv[n]; n++)
 	{
-		if (info->argv[i][0] != '$' || !info->argv[i][1])
+		if (info->argv[n][0] != '$' || !info->argv[n][1])
 			continue;
 
-		if (!_strcmp(info->argv[i], "$?"))
+		if (!_strcmp(info->argv[n], "$?"))
 		{
-			replace_string(&(info->argv[i]),
+			replacestring(&(info->argv[n]),
 					_strdup(convert_number(info->status, 10, 0)));
 			continue;
 		}
-		if (!_strcmp(info->argv[i], "$$"))
+		if (!_strcmp(info->argv[n], "$$"))
 		{
-			replace_string(&(info->argv[i]),
+			replacestring(&(info->argv[n]),
 					_strdup(convert_number(getpid(), 10, 0)));
 			continue;
 		}
-		node = node_starts_with(info->env, &info->argv[i][1], '=');
+		node = node_starts_with(info->env, &info->argv[n][1], '=');
 		if (node)
 		{
-			replace_string(&(info->argv[i]),
+			replacestring(&(info->argv[n]),
 					_strdup(_strchr(node->str, '=') + 1));
 			continue;
 		}
-		replace_string(&info->argv[i], _strdup(""));
+		replacestring(&info->argv[n], _strdup(""));
 
 	}
 	return (0);
 }
 
 /**
- * replace_string - replaces string
- * @old: address of old string
- * @new: new string
+ * replacestring - replaces string
+ * @prev: address of old string
+ * @curr: new string
  *
  * Return: 1 if replaced, 0 otherwise
  */
-int replace_string(char **old, char *new)
+int replacestring(char **prev, char *curr)
 {
-	free(*old);
-	*old = new;
+	free(*prev);
+	*prev = curr;
 	return (1);
 }
 

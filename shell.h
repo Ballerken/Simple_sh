@@ -144,7 +144,7 @@ char *_strchr(char *, char);
 
 /* tokens.c */
 char **strtow(char *, char *);
-char **strtow2(char *, char);
+char **strtoow(char *, char);
 
 /* realloc.c */
 char *_memset(char *, char, unsigned int);

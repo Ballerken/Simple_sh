@@ -8,36 +8,36 @@
  */
 int _strlen(char *s)
 {
-	int i = 0;
+	int a = 0;
 
 	if (!s)
 		return (0);
 
 	while (*s++)
-		i++;
-	return (i);
+		a++;
+	return (a);
 }
 
 /**
  * _strcmp - performs lexicogarphic comparison of two strangs.
  * @s1: the first strang
- * @s2: the second strang
+ * @ss: the second strang
  *
- * Return: negative if s1 < s2, positive if s1 > s2, zero if s1 == s2
+ * Return: negative if s1 < ss, positive if s1 > ss, zero if s1 == ss
  */
-int _strcmp(char *s1, char *s2)
+int _strcmp(char *s1, char *ss)
 {
-	while (*s1 && *s2)
+	while (*s1 && *ss)
 	{
-		if (*s1 != *s2)
-			return (*s1 - *s2);
+		if (*s1 != *ss)
+			return (*s1 - *ss);
 		s1++;
-		s2++;
+		ss++;
 	}
-	if (*s1 == *s2)
+	if (*s1 == *ss)
 		return (0);
 	else
-		return (*s1 < *s2 ? -1 : 1);
+		return (*s1 < *ss ? -1 : 1);
 }
 
 /**
@@ -64,13 +64,13 @@ char *starts_with(const char *haystack, const char *needle)
  */
 char *_strcat(char *dest, char *src)
 {
-	char *ret = dest;
+	char *rett = dest;
 
 	while (*dest)
 		dest++;
 	while (*src)
 		*dest++ = *src++;
 	*dest = *src;
-	return (ret);
+	return (rett);
 }
 

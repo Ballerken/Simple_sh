@@ -2,61 +2,61 @@
 
 /**
  **_memset - fills memory with a constant byte
- *@s: the pointer to the memory area
- *@b: the byte to fill *s with
- *@n: the amount of bytes to be filled
+ *@a: the pointer to the memory area
+ *@m: the byte to fill *s with
+ *@i: the amount of bytes to be filled
  *Return: a pointer to the memory area s
  */
-char *_memset(char *s, char b, unsigned int n)
+char *_memset(char *a, char m, unsigned int i)
 {
-	unsigned int i;
+	unsigned int n;
 
-	for (i = 0; i < n; i++)
-		s[i] = b;
-	return (s);
+	for (n = 0; n < i; n++)
+		a[n] = m;
+	return (a);
 }
 
 /**
- * ffree - frees a string of strings
+ * freee - frees a string of strings
  * @pp: string of strings
  */
-void ffree(char **pp)
+void freee(char **pp)
 {
-	char **a = pp;
+	char **m = pp;
 
 	if (!pp)
 		return;
 	while (*pp)
 		free(*pp++);
-	free(a);
+	free(m);
 }
 
 /**
  * _realloc - reallocates a block of memory
  * @ptr: pointer to previous malloc'ated block
- * @old_size: byte size of previous block
- * @new_size: byte size of new block
+ * @prev_size: byte size of previous block
+ * @curr_size: byte size of new block
  *
  * Return: pointer to da ol'block nameen.
  */
-void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
+void *_realloc(void *ptr, unsigned int prev_size, unsigned int curr_size)
 {
 	char *p;
 
 	if (!ptr)
-		return (malloc(new_size));
-	if (!new_size)
+		return (malloc(curr_size));
+	if (!curr_size)
 		return (free(ptr), NULL);
-	if (new_size == old_size)
+	if (curr_size == prev_size)
 		return (ptr);
 
-	p = malloc(new_size);
+	p = malloc(curr_size);
 	if (!p)
 		return (NULL);
 
-	old_size = old_size < new_size ? old_size : new_size;
-	while (old_size--)
-		p[old_size] = ((char *)ptr)[old_size];
+	prev_size = prev_size < curr_size ? prev_size : curr_size;
+	while (prev_size--)
+		p[prev_size] = ((char *)ptr)[prev_size];
 	free(ptr);
 	return (p);
 }

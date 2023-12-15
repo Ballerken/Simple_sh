@@ -60,15 +60,15 @@ void free_Info(info_t *info, int all)
 		if (!info->cmd_buf)
 			free(info->arg);
 		if (info->env)
-			free_list(&(info->env));
+			free_LIST(&(info->env));
 		if (info->history)
-			free_list(&(info->history));
+			free_LIST(&(info->history));
 		if (info->alias)
-			free_list(&(info->alias));
-		bfree((void **)&(info->environ));
-		/* bfree(info->environ); */
+			free_LIST(&(info->alias));
+		befree((void **)&(info->environ));
+		/* befree(info->environ); */
 		info->environ = NULL;
-		bfree((void **)info->cmd_buf);
+		befree((void **)info->cmd_buf);
 		if (info->readfd > 2)
 			close(info->readfd);
 		_putchar(BUF_FLUSH);

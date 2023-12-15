@@ -27,7 +27,7 @@ size_t listlen(const list_t *h)
 char **list_to_strings(list_t *head)
 {
 	list_t *node = head;
-	size_t a = list_len(head), j;
+	size_t a = listlen(head), j;
 	char **strs;
 	char *str;
 

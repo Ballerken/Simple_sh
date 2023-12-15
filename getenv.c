@@ -41,7 +41,7 @@ int _unsetEnv(info_t *info, char *var)
 		p = starts_with(node->str, var);
 		if (p && *p == '=')
 		{
-			env_changed = delete_node_at_index(&(info->env), i);
+			env_changed = delete_node_at_INDEX(&(info->env), i);
 			i = 0;
 			node = info->env;
 			continue;
@@ -90,7 +90,7 @@ int _setEnv(info_t *info, char *var, char *value)
 		}
 		node = node->next;
 	}
-	add_node_end(&(info->env), buf, 0);
+	add_node_END(&(info->env), buf, 0);
 	free(buf);
 	info->env_changed = env_changed;
 	return (0);

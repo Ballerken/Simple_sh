@@ -176,6 +176,8 @@ int _myhelp(info_t *);
 int my_history(info_t *);
 int _myAlias(info_t *);
 int unset_Alias(info_t *info, char *str);
+int set_Alias(info_t *info, char *str);
+int print_Alias(list_t *node);
 
 /* getline.c */
 ssize_t get_input(info_t *);

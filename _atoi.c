@@ -12,29 +12,29 @@ int interactive(info_t *info)
 }
 
 /**
- * is_delim - checks if character is a delimiter
+ * if_del - checks if character is a delimiter
  * @c: the char to check
- * @delim: the delimiter string
+ * @del: the delimiter string
  *
  * Return: 1 if true, 0 if false
  */
-int is_delim(char c, char *delim)
+int if_del(char c, char *del)
 {
-	while (*delim)
-		if (*delim++ == c)
+	while (*del)
+		if (*del++ == c)
 			return (1);
 	return (0);
 }
 
 /**
- * _isalpha - checks for alphabetic character
- * @c: The character to check
+ * if_alpha - checks for alphabetic character
+ * @ch: The character to check
  *
  * Return: 1 if c is alphabetic, 0 otherwise
  */
-int _isalpha(int c)
+int if_alpha(int ch)
 {
-	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
+return ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z'));
 }
 
 /**
@@ -45,7 +45,7 @@ int _isalpha(int c)
  */
 int _atoi(char *s)
 {
-	int i, sign = 1, output = 0;
+	int i, sign = 1, data = 0;
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
@@ -54,13 +54,13 @@ int _atoi(char *s)
 
 		if (s[i] >= '0' && s[i] <= '9')
 		{
-			output *= 10;
-			output += (s[i] - '0');
+			data *= 10;
+			data += (s[i] - '0');
 		}
-		else if (output != 0)
+		else if (data != 0)
 			break;
 	}
 
-	return (sign * output);
+	return (sign * data);
 }
 

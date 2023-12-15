@@ -167,14 +167,17 @@ int print_d(int, int);
 char *convert_number(long int, int, int);
 void remove_comments(char *);
 
-/* builtin.c */
-int _myexit(info_t *);
-int _mycd(info_t *);
-int _myhelp(info_t *);
+/* builtin.c done */
+int _myExit(info_t *);
+int _myCd(info_t *);
+int _myHelp(info_t *);
 
-/* builtin1.c */
-int _myhistory(info_t *);
-int _myalias(info_t *);
+/* builtin1.c done */
+int my_History(info_t *);
+int _myAlias(info_t *);
+int unset_Alias(info_t *info, char *str);
+int set_Alias(info_t *info, char *str);
+int print_Alias(list_t *node);
 
 /* getline.c */
 ssize_t get_input(info_t *);
@@ -186,12 +189,12 @@ void clear_info(info_t *);
 void set_info(info_t *, char **);
 void free_info(info_t *, int);
 
-/* environ.c */
-char *_getenv(info_t *, const char *);
-int _myenv(info_t *);
-int _mysetenv(info_t *);
-int _myunsetenv(info_t *);
-int populate_env_list(info_t *);
+/* environiment.c */
+char *_getEnv(info_t *, const char *);
+int _myEnv(info_t *);
+int _mysetEnv(info_t *);
+int _myunsetEnv(info_t *);
+int populate_Env_list(info_t *);
 
 /* getenv.c */
 char **get_environ(info_t *);

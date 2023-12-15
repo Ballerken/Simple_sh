@@ -148,7 +148,7 @@ char **strtoow(char *, char);
 
 /* realloc.c */
 char *_memset(char *, char, unsigned int);
-void ffree(char **);
+void freee(char **);
 void *_realloc(void *, unsigned int, unsigned int);
 
 /* memory.c */

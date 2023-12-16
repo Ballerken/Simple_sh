@@ -55,7 +55,7 @@ int _mysetEnv(info_t *info)
 }
 
 /**
- * _myunsetenv - Remove an env variable
+ * _myunsetEnv - Remove an env variable
  * @info: Structure containing potential arguments. Used to maintain
  *        constant function prototype.
  *  Return: Always 0

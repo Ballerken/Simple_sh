@@ -162,8 +162,8 @@ int bfree(void **);
 
 /* _atoi.c */
 int interactive(info_t *);
-int is_delim(char, char *);
-int _isalpha(int);
+int if_del(char, char *);
+int if_alpha(int);
 int _atoi(char *);
 
 /* _errors1.c */
@@ -193,11 +193,11 @@ void set_info(info_t *, char **);
 void free_info(info_t *, int);
 
 /* _environ.c */
-char *_getenv(info_t *, const char *);
-int _myenv(info_t *);
-int _mysetenv(info_t *);
-int _myunsetenv(info_t *);
-int populate_env_list(info_t *);
+char *_getEnv(info_t *, const char *);
+int _myEnv(info_t *);
+int _mysetEnv(info_t *);
+int _myunsetEnv(info_t *);
+int populate_Env_list(info_t *);
 
 /* _getenv.c */
 char **get_environ(info_t *);

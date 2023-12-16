@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * main - entry point
+ * main - entry point of the program
  * @ac: arg count
  * @av: arg vector
  *
@@ -37,7 +37,7 @@ int main(int ac, char **av)
 		}
 		info->readfd = fd;
 	}
-	populate_env_list(info);
+	populate_Env_list(info);
 	read_history(info);
 	hsh(info, av);
 	return (EXIT_SUCCESS);

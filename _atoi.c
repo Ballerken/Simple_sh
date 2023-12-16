@@ -12,16 +12,16 @@ int interactive(info_t *info)
 }
 
 /**
- * is_delim - checks if character is a delimeter
+ * if_del - checks if character is a delimeter
  * @c: the charcter to check
- * @delim: delimeter string
+ * @del: delimeter string
  * Return: 1 if true, 0 if false
  */
-int is_delim(char c, char *delim)
+int if_del(char c, char *del)
 {
-	while (*delim)
+	while (*del)
 	{
-		if (*delim++ == c)
+		if (*del++ == c)
 		{
 			return (1);
 		}
@@ -30,17 +30,21 @@ int is_delim(char c, char *delim)
 }
 
 /**
- *_isalpha - checks for alphabetic character
+ *if_alpha - checks for alphabetic character
  *@c: The character to input
  *Return: 1 if c is alphabetic, 0 otherwise
  */
 
-int _isalpha(int c)
+int if_alpha(int c)
 {
 	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+	{
 		return (1);
+	}
 	else
+	{
 		return (0);
+	}
 }
 
 /**

@@ -1,17 +1,19 @@
 #include "shell.h"
 
 /**
- *_eputs - prints an input string
+ *_eputs - simply prints an input string
  * @str: the string to be printed
  *
- * Return: Nothing
+ * Return: void
  */
 void _eputs(char *str)
 {
 	int i = 0;
 
 	if (!str)
+	{
 		return;
+	}
 	while (str[i] != '\0')
 	{
 		_eputchar(str[i]);
@@ -20,7 +22,7 @@ void _eputs(char *str)
 }
 
 /**
- * _eputchar - writes the character c to stderr
+ * _eputchar - writes the character c to std error
  * @c: The character to print
  *
  * Return: On success 1.
@@ -42,7 +44,7 @@ int _eputchar(char c)
 }
 
 /**
- * _putfd - writes the character c to given fd
+ * _putfd - simply writes the character c to given fd
  * @c: The character to print
  * @fd: The filedescriptor to write to
  *
@@ -65,7 +67,7 @@ int _putfd(char c, int fd)
 }
 
 /**
- *_putsfd - prints an input string
+ *_putsfd - prints an input string.
  * @str: the string to be printed
  * @fd: the filedescriptor to write to
  *
